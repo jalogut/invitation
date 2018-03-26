@@ -4,28 +4,106 @@
   <head>
   <title>My Now Amazing Webpage</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
   </head>
-  <body>
+ <!-- <body style='background: blue; font-family: "Lato","Helvetica Neue","Helvetica","Arial","sans-serif"; '> -->
+<style type="text/css">
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .slider {
+        margin: 0 auto;
+    }
+    
+    .slick-slide {
+        position: relative;
+    }
+    
+    .slick-slide img {
+        height: 100%;
+        margin: auto;
+    }
 
-  <div class="your-class">
-    <div>your content 1</div>
-    <div>your content 2</div>
-    <div>your content 3</div>
+    .slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
+
+    .slick-dots {
+      bottom: 0px;
+    } 
+
+    .slick-dots li.slick-active button:before {
+      color: green;
+    }
+    
+    .slick-dots li {
+      margin: 10px 30px;
+    }
+
+    .slick-dots li button:before {
+      color: white;
+      font-size: 30px;
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 120px;
+    }
+</style>
+
+  <div class="your-class" style="display: none;">
+    <div>
+      <img src="dummy_image.jpg">
+        <div class="centered" id="guest">placeholder</div>
+      </img>
+    </div>
+    <div>
+      <img src="dummy_image.jpg"></img>
+    </div>
+    <div>
+      <img src="dummy_image.jpg"></img>
+    </div>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 
   <script type="text/javascript">
-    $(document).ready(function(){
-      $('.your-class').slick({
-        setting-name: setting-value
-      });
-    });
-  </script>
+    var myArray = [];
+    myArray['12345'] = {a: "Rigo", b: "Alicia"};
+    myArray['123456'] = {a: "Medina", b: "Almudena"};
 
+    var url = new URL(window.location.href);
+    var c = url.searchParams.get("c");
+    if (c in myArray) {
+      var guests = myArray[c];
+      $('#guest').html(guests.a + "<br>&<br>" + guests.b);
+      
+      $(document).ready(function(){
+      $('.your-class').show();
+      $('.your-class').slick({  
+        dots: true,
+        arrows: false,
+        });
+      });
+    }
+
+  </script>
+  
   </body>
 </html>
