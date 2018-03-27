@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <title></title>
 </head>
-<body style="padding:0px; margin:0px; background-color:#fff;font-family:arial,helvetica,sans-serif,verdana,'Open Sans'">
+<body style="padding:0px; margin:0px; background-color:#fff;">
 
     <!-- #region Jssor Slider Begin -->
     <!-- Generator: Jssor Slider Maker -->
@@ -120,7 +120,13 @@
         });
     </script>
     <style>
+        @font-face {
+            font-family: Marmalade;
+            src: url("fonts/Marmalade.otf") format("opentype");
+        }
+
         html, body {
+            font-family: 'Marmalade', 'helvetica', arial, sans-serif, verdana, 'Open Sans';
             position:absolute;
             margin: 0;
             padding: 0;
@@ -154,10 +160,10 @@
 
         /*jssor slider arrow skin 051 css*/
         .jssora051 {display:block;position:absolute;cursor:pointer;}
-        .jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
+        .jssora051 .a {fill:none;stroke:black;stroke-width:360;stroke-miterlimit:10;}
         .jssora051:hover {opacity:.8;}
         .jssora051.jssora051dn {opacity:.5;}
-        .jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+        .jssora051.jssora051ds {opacity:0;pointer-events:none;}
         .centered-text {
           position: absolute;
           top: 50%;
@@ -165,6 +171,7 @@
           transform: translate(-50%, -50%);
           color: black;
           font-size: 120px;
+          text-align: center;
         }
 
     </style>
@@ -179,17 +186,18 @@
             </div>
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:640px;height:960px;overflow:hidden;">
                 <div data-p="200.00">
-                    <img data-u="image" src="img/dummy_1.jpg" />
+                    <img data-u="image" src="img/img_1.jpg" />
                     <div id="guest-names" class="centered-text"></div>
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/dummy_2.jpg" />
+                    <img data-u="image" src="img/img_2.jpg" />
                 </div>
                 <div data-p="200.00">
                     <img data-u="image" src="img/dummy_3.jpg" />
                 </div>
             </div>
             <!-- Bullet Navigator -->
+            <!--
             <div data-u="navigator" class="jssorb064" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
                 <div data-u="prototype" class="i" style="width:16px;height:16px;">
                     <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
@@ -197,8 +205,9 @@
                     </svg>
                 </div>
             </div>
+            -->
             <!-- Arrow Navigator -->
-            <!--
+            
             <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
                 <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                     <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
@@ -209,7 +218,7 @@
                     <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
                 </svg>
             </div>
-            -->
+            
         </div>
     </div>
     <!-- #endregion Jssor Slider End -->
