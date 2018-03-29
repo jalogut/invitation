@@ -126,12 +126,11 @@
             jssor_1_slider.$On($JssorSlider$.$EVT_PARK, function(slideIndex, fromIndex) {
                 // Hide right arrow on confirmation/present slide. Present slide is only accesible by pressing button
                 if (slideIndex == 3) {
-                    //$('#slider-arrow-right').hide();
+                    $('#slider-arrow-right').addClass('hidden');
                 } else {
-                    $('#slider-arrow-right').show();
+                    $('#slider-arrow-right').removeClass('hidden');
                 }
-                //alert(slideIndex + " - " + fromIndex);
-                console.log(slideIndex);
+                //console.log(slideIndex);
             });
         });
     </script>
@@ -180,6 +179,7 @@
         .jssora051:hover {opacity:.8;}
         .jssora051.jssora051dn {opacity:.5;}
         .jssora051.jssora051ds {opacity:0;pointer-events:none;}
+        .jssora051.hidden {opacity:0;pointer-events:none;}
         .centered-text {
           position: absolute;
           top: 50%;
