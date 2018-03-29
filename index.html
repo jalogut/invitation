@@ -34,12 +34,16 @@
             myArray['12345'] = {a: "Rigo", b: "Alicia"};
             myArray['123456'] = {a: "Medina", b: "Almudena"};
 
-            //var url = new URL(window.location.href);
-            //var c = url.searchParams.get("c");
             var c = getUrlParameter('c');
             if (c in myArray) {
               var guests = myArray[c];
               $('#guest-names').html(guests.a + "<br>&<br>" + guests.b);
+              var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" + guests.a + " y " + guests.b + " confirmados 🙌! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No 🚌 %0D%0A"
+              $('#confirm-button').attr('href', confirmHrefValue);
+              $('#present-button').click(function(){
+                 $("#slider-arrow-right").click()
+                 return false;
+              });
               $('#slider').show();
             } else {
                 $('#error-gif').show();
@@ -50,12 +54,13 @@
               $AutoPlay: 0,
               $Idle: 2000,
               $SlideEasing: $Jease$.$InOutSine,
-              $DragOrientation: 3,
+              $DragOrientation: 0,
               $ArrowNavigatorOptions: {
                 $Class: $JssorArrowNavigator$
               },
               $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$
+                $Class: $JssorBulletNavigator$,
+                $ChanceToShow: 0
               }
             };
 
@@ -117,6 +122,16 @@
             $(window).bind("resize", ScaleSlider);
             $(window).bind("orientationchange", ScaleSlider);
             /*#endregion responsive code end*/
+
+            jssor_1_slider.$On($JssorSlider$.$EVT_PARK, function(slideIndex, fromIndex) {
+                // Hide right arrow on confirmation/present slide. Present slide is only accesible by pressing button
+                if (slideIndex == 3) {
+                    $('#slider-arrow-right').hide();
+                } else {
+                    $('#slider-arrow-right').show();
+                }
+                console.log(slideIndex);
+            });
         });
     </script>
     <style>
@@ -174,6 +189,65 @@
           text-align: center;
         }
     </style>
+    <style>
+        .button {
+            display: inline-block;
+            margin-top: 20%;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            -webkit-box-shadow:    0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
+            -moz-box-shadow: 0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
+            box-shadow: 0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
+            -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+            -moz-transition: -moz-box-shadow .1s ease-in-out;
+            -o-transition: -o-box-shadow .1s ease-in-out;
+            transition: box-shadow .1s ease-in-out;
+            font-size: 50px;
+            color: black;
+        }
+
+        .button span {
+            display: inline-block;
+            padding: 20px 30px;
+            background-color: #11C61F;
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(108, 90%, 80%, .8)), to(hsla(108, 90%, 70%, .2)));
+            background-image: -webkit-linear-gradient(hsla(108, 90%, 80%, .8), hsla(108, 90%, 70%, .2));
+            background-image: -moz-linear-gradient(hsla(108, 90%, 80%, .8), hsla(108, 90%, 70%, .2));
+            background-image: -o-linear-gradient(hsla(108, 90%, 80%, .8), hsla(108, 90%, 70%, .2));
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+            -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+            box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+            line-height: 1;
+            text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+            -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+            -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+            -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+            transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+        }
+
+        .button:hover span {
+            background-color: #70E558;
+            text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+        }
+
+        .button:active, .button:focus {
+            -webkit-box-shadow:    0 8px 0 #70E558, 0 12px 10px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 8px 0 #70E558, 0 12px 10px rgba(0, 0, 0, .3);
+            box-shadow:    0 8px 0 #70E558, 0 12px 10px rgba(0, 0, 0, .3);
+        }
+
+        .button:active span {
+            -webkit-transform: translate(0, 4px);
+            -moz-transform: translate(0, 4px);
+            -o-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+        }
+    </style>
+
     <div id="error-gif" style="display: none;" >
         <p style="text-align:center;"><img style="max-width: 100%;" src="img/error.gif"></p>
     </div>
@@ -192,11 +266,27 @@
                     <img data-u="image" src="img/img_2.jpg" />
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/dummy_3.jpg" />
+                    <img data-u="image" src="img/img_1.jpg" />
+                    <div class="centered-text" style="font-size: 40px;">Buses and info...</div>
+                </div>
+                <div data-p="200.00">
+                    <img data-u="image" src="img/img_1.jpg" />
+                    <div class="centered-text" />
+                        <a href="#" id="confirm-button" class="button">
+                            <span>Confirmar</span>
+                        </a>
+                        <br> 
+                        <a href="#" id="present-button" class="button">
+                            <span>Regalo</span>
+                        </a>
+                    </div>
+                </div>
+                <div data-p="200.00">
+                    <img data-u="image" src="img/img_1.jpg" />
+                    <div class="centered-text" style="font-size: 40px;">Texto Raynair <br> 000 0000 000 00 00 000</div>
                 </div>
             </div>
             <!-- Bullet Navigator -->
-            <!--
             <div data-u="navigator" class="jssorb064" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
                 <div data-u="prototype" class="i" style="width:16px;height:16px;">
                     <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
@@ -204,15 +294,13 @@
                     </svg>
                 </div>
             </div>
-            -->
             <!-- Arrow Navigator -->
-            
             <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
                 <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                     <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
                 </svg>
             </div>
-            <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+            <div id="slider-arrow-right" data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
                 <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                     <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
                 </svg>
