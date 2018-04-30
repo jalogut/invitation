@@ -36,15 +36,15 @@
 
             var c = getUrlParameter('c');
             if (c in myArray) {
-              var guests = myArray[c];
-              $('#guest-names').html(guests.a + "<br>&<br>" + guests.b);
-              var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" + guests.a + " y " + guests.b + " confirmados! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No %0D%0A"
-              $('#confirm-button').attr('href', confirmHrefValue);
-              $('#present-button').click(function(){
-                 $("#slider-arrow-right").click()
-                 return false;
-              });
-              $('#slider').show();
+                var guests = myArray[c];
+                $('#guest-names').html(guests.a + "<br>&<br>" + guests.b);
+                var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" + guests.a + " y " + guests.b + " confirmados! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No %0D%0A %0D%0A %0D%0A Otra información aqui (alergias, intolerancias, vegetarian@...) -> "
+                $('#confirm-button').attr('href', confirmHrefValue);
+                $('#present-button').click(function(){
+                    $("#slider-arrow-right").click()
+                    return false;
+                });
+                $('#slider').show();
             } else {
                 $('#error-gif').show();
             }
@@ -186,7 +186,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
           color: black;
-          font-size: 120px;
+          font-size: 100px;
           text-align: center;
         }
     </style>
@@ -197,9 +197,9 @@
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
-            -webkit-box-shadow:    0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
-            -moz-box-shadow: 0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
-            box-shadow: 0 8px 0 #006D11, 0 15px 20px rgba(0, 0, 0, .35);
+            -webkit-box-shadow:    0 8px 0 #DCB443, 0 15px 20px rgba(0, 0, 0, .35);
+            -moz-box-shadow: 0 8px 0 #DCB443, 0 15px 20px rgba(0, 0, 0, .35);
+            box-shadow: 0 8px 0 #DCB443, 0 15px 20px rgba(0, 0, 0, .35);
             -webkit-transition: -webkit-box-shadow .1s ease-in-out;
             -moz-transition: -moz-box-shadow .1s ease-in-out;
             -o-transition: -o-box-shadow .1s ease-in-out;
@@ -211,7 +211,7 @@
         .button span {
             display: inline-block;
             padding: 20px 30px;
-            background-color: beige;
+            border: 2px solid #DCB443;
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
@@ -230,9 +230,9 @@
         }
 
         .button:active, .button:focus {
-            -webkit-box-shadow:    0 8px 0 #006D11, 0 12px 10px rgba(0, 0, 0, .3);
-            -moz-box-shadow: 0 8px 0 #006D11, 0 12px 10px rgba(0, 0, 0, .3);
-            box-shadow:    0 8px 0 #006D11, 0 12px 10px rgba(0, 0, 0, .3);
+            -webkit-box-shadow:    0 8px 0 #DCB443, 0 12px 10px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 8px 0 #DCB443, 0 12px 10px rgba(0, 0, 0, .3);
+            box-shadow:    0 8px 0 #DCB443, 0 12px 10px rgba(0, 0, 0, .3);
         }
 
         .button:active span {
@@ -254,18 +254,17 @@
             </div>
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:640px;height:960px;overflow:hidden;">
                 <div data-p="200.00">
-                    <img data-u="image" src="img/img_1.jpg" />
+                    <img data-u="image" src="img/nuriyjuan_1.jpg" />
                     <div id="guest-names" class="centered-text"></div>
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/img_2.jpg" />
+                    <img data-u="image" src="img/nuriyjuan_2.jpg" />
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/img_1.jpg" />
-                    <div class="centered-text" style="font-size: 40px;">Buses and info...</div>
+                    <img data-u="image" src="img/nuriyjuan_3.jpg" />
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/img_1.jpg" />
+                    <img data-u="image" src="img/nuriyjuan_4.jpg" />
                     <div class="centered-text" />
                         <a href="#" id="confirm-button" class="button">
                             <span>Confirmar asistencia</span>
@@ -277,8 +276,7 @@
                     </div>
                 </div>
                 <div data-p="200.00">
-                    <img data-u="image" src="img/img_1.jpg" />
-                    <div class="centered-text" style="font-size: 40px;">Texto Raynair <br> <br> <br> cuenta: 000 0000 000 00 00 000</div>
+                    <img data-u="image" src="img/nuriyjuan_5.jpg" />
                 </div>
             </div>
             <!-- Bullet Navigator -->
@@ -300,7 +298,6 @@
                     <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
                 </svg>
             </div>
-            
         </div>
     </div>
     <!-- #endregion Jssor Slider End -->
