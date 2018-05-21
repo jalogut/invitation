@@ -17,8 +17,14 @@ jQuery(document).ready(function ($) {
     var guest = getUrlParameter('guest');
     if (guest in guestList) {
         var guests = guestList[guest];
-        $('#guest-names').html(guests.first + "<br>&<br>" + guests.second);
-        var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" + guests.first + " y " + guests.second + " confirmados 🙌! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No %0D%0A %0D%0A %0D%0A -> Otra información aqui (alergias, intolerancias, vegetarian@...) "
+        var guestsHtmlText = guests.first;
+        var guestsEmailText = guests.first;
+        if ('second' in guests) {
+            guestsHtmlText = guestsHtmlText + "<br>&<br>" + guests.second;
+            guestsEmailText = guestsEmailText + " y " + guests.second;
+        }
+        $('#guest-names').html(guestsHtmlText);
+        var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" +  guestsEmailText + " confirmado(s) 🙌! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No %0D%0A %0D%0A %0D%0A -> Otra información aqui (alergias, intolerancias, vegetarian@...) "
         $('#confirm-button').attr('href', confirmHrefValue);
         $('#present-button').click(function(){
             $("#slider-arrow-right").click()
