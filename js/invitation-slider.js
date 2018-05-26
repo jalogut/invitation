@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
             guestsEmailText = guestsEmailText + " y " + guests.second;
         }
         $('#guest-names').html(guestsHtmlText);
-        var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" +  guestsEmailText + " confirmado(s) 🙌! %0D%0A %0D%0A Bus desde Valladolid/Tordesillas: Si/No %0D%0A %0D%0A %0D%0A -> Otra información aqui (alergias, intolerancias, vegetarian@...) "
+        var confirmHrefValue = "mailto:juan.jalogut@gmail.com,nuria.hernaez@gmail.com?subject=Confirmar asistencia&body=" +  guestsEmailText + " confirmado(s) 🙌! %0D%0A %0D%0A Bus desde Valladolid/Torrecilla: Si/No %0D%0A %0D%0A %0D%0A -> Otra información aqui (alergias, intolerancias, vegetarian@...) "
         $('#confirm-button').attr('href', confirmHrefValue);
         $('#present-button').click(function(){
             $("#slider-arrow-right").click()
