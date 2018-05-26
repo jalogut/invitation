@@ -23,6 +23,7 @@ guestList['enerea'] = {first: "Enrique", second: "Rebeca"};
 guestList['cassaa'] = {first: "Carlos", second: "Sara"};
 guestList['sauloe'] = {first: "Samu", second: "Lore"};
 guestList['nis'] = {first: "Nines"};
+guestList['ola'] = {first: "Olga"};
 
 // Juan
 guestList['rioala'] = {first: "Rigo", second: "Alicia"};
