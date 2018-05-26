@@ -43,6 +43,7 @@ guestList['poo'] = {first: "Pozo"};
 guestList['saa'] = {first: "Santiaga"};
 guestList['tinesr'] = {first: "Tinin", second: "Esther"};
 guestList['xaiace'] = {first: "Xavi", second: "Sara"};
+guestList['ora'] = {first: "Ortega"};
 
 guestList['alx'] = {first: "Alex"};
 guestList['caseii'] = {first: "Carlitos", second: "Eirini"};
