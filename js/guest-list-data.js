@@ -53,4 +53,4 @@ guestList['alnveo'] = {first: "Alfon", second: "Vero"};
 guestList['jai'] = {first: "Javi"};
 guestList['luades'] = {first: "Lucia", second: "Denis"};
 guestList['alo'] = {first: "Alberto"};
-//guestList['jua'] = {first: "Julia", second: ""};
+guestList['juavir'] = {first: "Julia", second: "Victor"};
