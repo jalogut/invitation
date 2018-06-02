@@ -56,3 +56,4 @@ guestList['jai'] = {first: "Javi"};
 guestList['luades'] = {first: "Lucia", second: "Denis"};
 guestList['alo'] = {first: "Alberto"};
 guestList['juavir'] = {first: "Julia", second: "Victor"};
+guestList['miiyaa'] = {first: "Mili", second: "Yaya"};
